@@ -18,6 +18,16 @@ export const Nav = () => {
           Sign In
         </Link>
       </div>
+      <div>
+        <Link to="user" className="main-nav-item">
+          <i class="fa fa-user-circle"></i>
+          Tony
+        </Link>
+        <Link className="main-nav-item">
+          <i class="fa fa-sign-out"></i>
+          Sign Out
+        </Link>
+      </div>
     </nav>
   );
 };
