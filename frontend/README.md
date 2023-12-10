@@ -74,3 +74,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 `npm create react-app frontend`
 `npm install react-router-dom`
 `npm install sass`
+`npm install @reduxjs/toolkit react-redux`
