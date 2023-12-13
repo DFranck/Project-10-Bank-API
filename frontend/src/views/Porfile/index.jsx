@@ -4,7 +4,7 @@ import "./index.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { useGetUserProfileQuery } from "../../services/userApi";
 import { login } from "../../features/auth/authSlice";
-export const User = () => {
+export const Profile = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const { data, error } = useGetUserProfileQuery(token, {

@@ -18,7 +18,7 @@ export const Nav = () => {
       </Link>
       {!user ? (
         <div>
-          <Link to="/SignIn" className="main-nav-item">
+          <Link to="/login" className="main-nav-item">
             <i className="fa fa-user-circle"></i>
             Sign In
           </Link>

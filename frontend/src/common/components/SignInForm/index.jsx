@@ -40,7 +40,7 @@ export function SignInForm() {
           token,
         })
       );
-      navigate("/User");
+      navigate("/profile");
     } catch (error) {
       console.error(error);
     }

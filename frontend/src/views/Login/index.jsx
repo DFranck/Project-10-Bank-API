@@ -1,6 +1,6 @@
 import { SignInForm } from "../../common/components/SignInForm";
 import "./index.scss";
-export const SignIn = () => {
+export const Login = () => {
   return (
     <main className="main bg-dark">
       <section className="sign-in-content">
