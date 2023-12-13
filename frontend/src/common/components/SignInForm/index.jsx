@@ -18,6 +18,7 @@ export function SignInForm() {
   const [isPasswordValid, setPasswordValid] = useState(true);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const handleEmail = (e) => {
     setUserName(e.target.value);
   };
@@ -43,15 +44,16 @@ export function SignInForm() {
       navigate("/profile");
     } catch (error) {
       console.error(error);
+      setError(error);
     }
   };
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="input-wrapper">
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Email</label>
         <input type="text" id="username" onChange={(e) => handleEmail(e)} />
         {!isUserNameValid && userName.length > 3 && (
-          <p className="unvalid">Veuillez renseigner une nom valide</p>
+          <p className="unvalid">Veuillez renseigner une Email valide</p>
         )}
       </div>
       <div className="input-wrapper">
@@ -61,22 +63,11 @@ export function SignInForm() {
           id="password"
           onChange={(e) => handlePassword(e)}
         />
-        {!isPasswordValid && password.length > 8 && (
+        {error && error.status === 400 && (
           <>
-            <p className="unvalid">Attention le mot de passe doit contenir:</p>
-            <ul className="unvalid">
-              {password.length < 8 && <li>Au moins 8 caractères.</li>}
-              {!/[A-Z]/.test(password) && (
-                <li>Au moins une lettre majuscule.</li>
-              )}
-              {!/[a-z]/.test(password) && (
-                <li>Au moins une lettre minuscule.</li>
-              )}
-              {!/\d/.test(password) && <li>Au moins un chiffre.</li>}
-              {!/[@$!%*?&]/.test(password) && (
-                <li>Au moins un caractère spécial (comme !, @, #, etc.).</li>
-              )}
-            </ul>
+            <p className="unvalid">
+              L'Email et/ou le mot de passe sont incorrects
+            </p>
           </>
         )}
       </div>
