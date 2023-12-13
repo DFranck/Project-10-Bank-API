@@ -13,9 +13,7 @@ export function SignInForm() {
   const dispatch = useDispatch();
   //FORMCONTROL
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const passwordRegex = /^(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   const [isUserNameValid, setUserNameValid] = useState(true);
-  const [isPasswordValid, setPasswordValid] = useState(true);
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +26,6 @@ export function SignInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUserNameValid(emailRegex.test(userName));
-    setPasswordValid(passwordRegex.test(password));
     const tryUserLogin = {
       email: userName,
       password: password,

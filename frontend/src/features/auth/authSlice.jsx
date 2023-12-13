@@ -19,7 +19,11 @@ export const authSlice = createSlice({
       state.user = null;
       state.token = null;
     },
+    updateProfile: (state, action) => {
+      state.user = action.payload.user;
+      console.log("Update User", state.user);
+    },
   },
 });
 
-export const { login, setToken, logout } = authSlice.actions;
+export const { login, setToken, logout, updateProfile } = authSlice.actions;

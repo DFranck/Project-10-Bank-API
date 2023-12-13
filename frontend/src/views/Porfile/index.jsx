@@ -1,9 +1,12 @@
 import { useEffect } from "react";
+import { EditForm } from "../../features/editName/editName";
 import "./index.scss";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
 import { useGetUserProfileQuery } from "../../services/userApi";
+import { handleForm } from "../../features/editName/editNameSlice";
 import { login } from "../../features/auth/authSlice";
+import { UserName } from "../../common/components/UserName";
 export const Profile = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
@@ -25,9 +28,12 @@ export const Profile = () => {
         <h1>
           Welcome back
           <br />
-          {`${data?.body?.firstName} ${data?.body?.lastName}`}
+          <UserName />
         </h1>
-        <button className="edit-button">Edit Name</button>
+        <button className="edit-button" onClick={() => dispatch(handleForm())}>
+          Edit Name
+        </button>
+        <EditForm />
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
