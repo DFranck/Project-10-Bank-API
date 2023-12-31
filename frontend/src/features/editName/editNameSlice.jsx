@@ -13,7 +13,7 @@ export const editNameSlice = createSlice({
     // },
     handleForm: (state) => {
       state.display = !state.display;
-      console.log("TUMEVOIS TUMEVOISPLUS", state.display);
+      console.log("EditName form, display :", state.display);
     },
   },
 });

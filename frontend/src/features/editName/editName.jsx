@@ -3,6 +3,7 @@ import { useState } from "react";
 import { usePutUserNameMutation } from "../../services/userApi";
 import { updateProfile } from "../auth/authSlice";
 import { handleForm } from "./editNameSlice";
+import "./editName.scss";
 // {
 //     "firstName": "string",
 //     "lastName": "string"
@@ -42,17 +43,24 @@ export const EditForm = () => {
     <>
       {displayForm === true && (
         <form action="" onSubmit={(e) => handleSubmit(e)}>
-          <input
-            type="text"
-            placeholder="First Name"
-            onChange={(e) => handleFirstName(e)}
-          />
-          <input
-            type="text"
-            placeholder="Last Name"
-            onChange={(e) => handleLastName(e)}
-          />
-          <button>Edit</button>
+          <div>
+            <input
+              type="text"
+              placeholder="First Name"
+              onChange={(e) => handleFirstName(e)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              onChange={(e) => handleLastName(e)}
+            />
+          </div>
+          <div>
+            <button>Save</button>
+            <button type="button" onClick={() => dispatch(handleForm())}>
+              Cancel
+            </button>
+          </div>
         </form>
       )}
     </>

@@ -9,6 +9,7 @@ import { login } from "../../features/auth/authSlice";
 import { UserName } from "../../common/components/UserName";
 export const Profile = () => {
   const dispatch = useDispatch();
+  const displayForm = useSelector((state) => state.editName.display);
   const token = useSelector((state) => state.auth.token);
   const { data, error } = useGetUserProfileQuery(token, {
     skip: !token,
@@ -25,15 +26,28 @@ export const Profile = () => {
   return (
     <main className="main bg-dark">
       <div className="header">
-        <h1>
-          Welcome back
-          <br />
-          <UserName />
-        </h1>
-        <button className="edit-button" onClick={() => dispatch(handleForm())}>
-          Edit Name
-        </button>
-        <EditForm />
+        {displayForm === false ? (
+          <>
+            <h1>
+              Welcome back
+              <br />
+              <UserName />
+            </h1>
+            <button
+              className="edit-button"
+              onClick={() => dispatch(handleForm())}
+            >
+              Edit Name
+            </button>
+          </>
+        ) : (
+          <>
+            <h1>
+              Welcome back
+              <EditForm />
+            </h1>
+          </>
+        )}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
