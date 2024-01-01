@@ -13,8 +13,8 @@ export function SignInForm() {
   const dispatch = useDispatch();
   //FORMCONTROL
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const [isUserNameValid, setUserNameValid] = useState(true);
-  const [userName, setUserName] = useState("");
+  const [isUserEmailValid, setUserEmailValid] = useState(true);
+  const [userEmail, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const handleEmail = (e) => {
@@ -25,9 +25,9 @@ export function SignInForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setUserNameValid(emailRegex.test(userName));
+    setUserEmailValid(emailRegex.test(userEmail));
     const tryUserLogin = {
-      email: userName,
+      email: userEmail,
       password: password,
     };
     try {
@@ -47,9 +47,9 @@ export function SignInForm() {
   return (
     <form onSubmit={(e) => handleSubmit(e)}>
       <div className="input-wrapper">
-        <label htmlFor="username">Email</label>
-        <input type="text" id="username" onChange={(e) => handleEmail(e)} />
-        {!isUserNameValid && userName.length > 3 && (
+        <label htmlFor="useremail">Email</label>
+        <input type="text" id="useremail" onChange={(e) => handleEmail(e)} />
+        {!isUserEmailValid && userEmail.length > 3 && (
           <p className="unvalid">Veuillez renseigner une Email valide</p>
         )}
       </div>

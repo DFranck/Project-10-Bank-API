@@ -48,6 +48,7 @@ export const EditForm = () => {
               type="text"
               placeholder="First Name"
               onChange={(e) => handleFirstName(e)}
+              autoFocus
             />
             <input
               type="text"
