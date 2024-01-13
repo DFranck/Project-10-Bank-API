@@ -5,7 +5,7 @@ import { Login } from "../views/Login";
 import { Profile } from "../views/Porfile";
 import { Nav } from "../common/components/Nav";
 import { Footer } from "../common/components/Footer";
-
+import { NotFound } from "../views/NotFound";
 export const AppRouter = () => {
   return (
     <>
@@ -15,6 +15,7 @@ export const AppRouter = () => {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
