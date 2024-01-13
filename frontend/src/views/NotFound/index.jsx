@@ -3,7 +3,7 @@ import "./index.scss";
 export const NotFound = () => {
   return (
     <main className="main">
-      <h1>
+      <h1 className="not-found">
         404
         <br />
         Page not found
