@@ -7,10 +7,6 @@ export const editNameSlice = createSlice({
     lastName: null,
   },
   reducers: {
-    // setName: (state, action) => {
-    //   state.auth.user.firstName = action.payload.firstName;
-    //   state.auth.user.lastName = action.payload.lastName;
-    // },
     handleForm: (state) => {
       state.display = !state.display;
       console.log("EditName form, display :", state.display);
