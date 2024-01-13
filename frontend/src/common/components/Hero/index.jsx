@@ -6,9 +6,6 @@ export const Hero = () => {
       className="hero"
       style={{
         backgroundImage: 'url("./img/bank-tree.jpeg") ',
-        backgroundPosition: "0 -50px",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
       }}
     >
       <section className="hero-content">

@@ -7,22 +7,29 @@ import { useGetUserProfileQuery } from "../../services/userApi";
 import { handleForm } from "../../features/editName/editNameSlice";
 import { login } from "../../features/auth/authSlice";
 import { UserName } from "../../common/components/UserName";
+import { useNavigate } from "react-router-dom";
 export const Profile = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const displayForm = useSelector((state) => state.editName.display);
   const token = useSelector((state) => state.auth.token);
   const { data, error } = useGetUserProfileQuery(token, {
     skip: !token,
   });
-
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
   useEffect(() => {
     if (data) {
       dispatch(login({ user: data.body }));
     }
     if (error) {
       console.error("Error fetching user data:", error);
+      navigate("/login");
     }
-  }, [data, error, dispatch]);
+  }, [data, error, dispatch, navigate]);
   return (
     <main className="main bg-dark">
       <div className="header">

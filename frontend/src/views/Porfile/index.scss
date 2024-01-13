@@ -1,8 +1,11 @@
 .main {
-    flex: 1;
 
     .header {
-        color: #fff;
+        h1 {
+
+            color: #fff;
+        }
+
         margin-bottom: 2rem;
 
         .edit-button {
@@ -53,9 +56,9 @@
                     flex: 0;
                 }
 
-                // .transaction-button {
-                //     width: 200px;
-                // }
+                .transaction-button {
+                    width: 200px;
+                }
             }
 
             .account-title {
@@ -75,5 +78,6 @@
                 margin: 0;
             }
         }
+
     }
 }

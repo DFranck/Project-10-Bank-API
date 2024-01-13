@@ -43,7 +43,7 @@ export const EditForm = () => {
     <>
       {displayForm === true && (
         <form action="" onSubmit={(e) => handleSubmit(e)}>
-          <div>
+          <div className="inputs">
             <input
               type="text"
               placeholder="First Name"

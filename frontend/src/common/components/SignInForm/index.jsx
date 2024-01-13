@@ -12,8 +12,6 @@ export function SignInForm() {
   const [loginUser] = useLoginUserMutation();
   const dispatch = useDispatch();
   //FORMCONTROL
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const [isUserEmailValid, setUserEmailValid] = useState(true);
   const [userEmail, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -25,7 +23,6 @@ export function SignInForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setUserEmailValid(emailRegex.test(userEmail));
     const tryUserLogin = {
       email: userEmail,
       password: password,
@@ -49,9 +46,6 @@ export function SignInForm() {
       <div className="input-wrapper">
         <label htmlFor="useremail">Email</label>
         <input type="text" id="useremail" onChange={(e) => handleEmail(e)} />
-        {!isUserEmailValid && userEmail.length > 3 && (
-          <p className="unvalid">Veuillez renseigner une Email valide</p>
-        )}
       </div>
       <div className="input-wrapper">
         <label htmlFor="password">Password</label>
@@ -60,13 +54,11 @@ export function SignInForm() {
           id="password"
           onChange={(e) => handlePassword(e)}
         />
-        {error && error.status === 400 && (
-          <>
-            <p className="unvalid">
-              L'Email et/ou le mot de passe sont incorrects
-            </p>
-          </>
-        )}
+        <>
+          <p className={error ? "unvalid show" : "unvalid"}>
+            L'Email et/ou le mot de passe sont incorrects
+          </p>
+        </>
       </div>
       <div className="input-remember">
         <input type="checkbox" id="remember-me" />
