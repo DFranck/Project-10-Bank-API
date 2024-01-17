@@ -9,7 +9,7 @@ export const editNameSlice = createSlice({
   reducers: {
     handleForm: (state) => {
       state.display = !state.display;
-      console.log("EditName form, display :", state.display);
+      // console.log("EditName form, display :", state.display);
     },
   },
 });

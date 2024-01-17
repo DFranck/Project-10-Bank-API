@@ -29,7 +29,7 @@ export const EditForm = () => {
         firstName: firstName,
         lastName: lastName,
       };
-      console.log(token, user);
+      // console.log(token, user);
       try {
         const response = await putUserName({ user, token }).unwrap();
         dispatch(updateProfile({ user: response.body }));
