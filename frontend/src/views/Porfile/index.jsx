@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { EditForm } from "../../features/editName/editName";
+import { EditForm } from "../../features/editName/EditForm";
 import "./index.scss";
 //REDUX
 import { useSelector, useDispatch } from "react-redux";
