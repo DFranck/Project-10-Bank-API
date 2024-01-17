@@ -3,8 +3,6 @@ export const editNameSlice = createSlice({
   name: "editName",
   initialState: {
     display: false,
-    firstName: null,
-    lastName: null,
   },
   reducers: {
     handleForm: (state) => {
